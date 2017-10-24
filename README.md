@@ -1,6 +1,6 @@
 Mini-forma KRACK
 ================
 
-Br?ve pr?sentation sur Cloudflare, la faille de s?curit? Cloudbleed, et le probl?me Cloudflare en g?n?ral.
+Brève présentation sur l'attaque KRACK découverte sur le protocole WPA et WPA2, dévoilée le 16 octobre 2017.
 
-Regardez la pr?sentation directement ici https://nymous.github.io/forma-krack/ !
+Regardez la présentation directement ici https://nymous.github.io/forma-krack/ !
