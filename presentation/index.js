@@ -5,7 +5,7 @@ import { Appear, BlockQuote, Quote, Cite, Deck, Heading, Image, Link, List, List
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
+import createTheme from "spectacle-theme-nova";
 
 // Require CSS
 require("normalize.css");
@@ -23,14 +23,7 @@ const images = {
 
 preloader(images);
 
-const theme = createTheme({
-  primary: "#3c4c55",
-  secondary: "#7fc1ca",
-  tertiary: "#e6eef3"
-}, {
-  primary: "Montserrat",
-  secondary: "Helvetica"
-});
+const theme = createTheme();
 
 export default class Presentation extends React.Component {
   render() {

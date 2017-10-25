@@ -2,6 +2,7 @@
 
 var path = require("path");
 var webpack = require("webpack");
+var UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 var CopyWebpackPlugin = require("copy-webpack-plugin")
 
 let outputPath = path.join(__dirname, "dist")
@@ -22,9 +23,10 @@ module.exports = {
         "NODE_ENV": JSON.stringify("production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        warnings: false,
+        parallel: true
       }
     }),
     new CopyWebpackPlugin([
@@ -37,7 +39,7 @@ module.exports = {
       loader: "html-loader!markdown-loader?gfm=false"
     }, {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: /node_modules\/(?!(spectacle-theme-nova)\/).*/,
       loader: "babel-loader"
     }, {
       test: /\.css$/,
