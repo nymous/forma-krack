@@ -2,6 +2,9 @@
 
 var path = require("path");
 var webpack = require("webpack");
+var CopyWebpackPlugin = require("copy-webpack-plugin")
+
+let outputPath = path.join(__dirname, "dist")
 
 module.exports = {
   entry: [
@@ -9,9 +12,9 @@ module.exports = {
     "./index"
   ],
   output: {
-    path: path.join(__dirname, "dist"),
+    path: outputPath,
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: "./"
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -23,7 +26,10 @@ module.exports = {
       compressor: {
         warnings: false
       }
-    })
+    }),
+    new CopyWebpackPlugin([
+      {from: './index.production.html', to: path.join(outputPath, 'index.html')}
+    ])
   ],
   module: {
     loaders: [{
@@ -42,6 +48,9 @@ module.exports = {
     }, {
       test: /\.svg$/,
       loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+    }, {
+      test: /\.(eot|ttf|woff2?)(\?.*)?$/,
+      loader: 'file-loader'
     }]
   }
 };

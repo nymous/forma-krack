@@ -5,12 +5,17 @@ import { Appear, BlockQuote, Quote, Cite, Deck, Heading, Image, Link, List, List
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 // Import theme
-import createTheme from "spectacle-theme-nova";
+import createTheme from "spectacle/lib/themes/default";
 
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
+require("prismjs/themes/prism-tomorrow.css");
+require("prismjs/prism");
+require("prismjs/components/prism-jsx");
+
+require("../assets/style.css");
 
 const images = {
   logoKrack: require("../assets/logo-krack.png"),
@@ -18,7 +23,14 @@ const images = {
 
 preloader(images);
 
-const theme = createTheme();
+const theme = createTheme({
+  primary: "#3c4c55",
+  secondary: "#7fc1ca",
+  tertiary: "#e6eef3"
+}, {
+  primary: "Montserrat",
+  secondary: "Helvetica"
+});
 
 export default class Presentation extends React.Component {
   render() {
