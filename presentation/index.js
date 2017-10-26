@@ -168,7 +168,6 @@ export default class Presentation extends React.Component {
             <Appear><ListItem>Injection de paquets</ListItem></Appear>
             <Appear><ListItem>Déchiffrement du trafic (surtout Linux & Android > 6)</ListItem></Appear>
             <Appear><ListItem>Modification de paquets (ex : SSL stripping)</ListItem></Appear>
-            <Appear><ListItem>Modification de paquets (ex : SSL stripping)</ListItem></Appear>
             <Appear><ListItem>On n'obtient PAS le mot de passe du Wi-fi</ListItem></Appear>
           </List>
           <Link href="https://youtu.be/Oh4WURZoR98">Démo (YouTube)</Link>
